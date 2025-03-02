@@ -34,3 +34,25 @@ C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\Gestion y Paquetería\o
 C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion_y_Paquetería.inicio.resources
 C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion_y_Paquetería.calculo_precios.resources
 C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion_y_Paquetería.adminmain.resources
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion_y_Paquetería.admin_calculo_precios.resources
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion_y_Paquetería.admin_ingreso_de_datos.resources
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion_y_Paquetería.admin_main.resources
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion_y_Paquetería.iniciar_sesion.resources
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion_y_Paquetería.inicio.resources
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion y Paquetería.csproj.GenerateResource.cache
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion y Paquetería.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion y Paquetería.AssemblyInfoInputs.cache
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion y Paquetería.AssemblyInfo.cs
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion y Paquetería.csproj.CoreCompileInputs.cache
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion y Paquetería.sourcelink.json
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion y Paquetería.dll
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\refint\Gestion y Paquetería.dll
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion y Paquetería.pdb
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\bin\Debug\net9.0-windows\Gestion y Paquetería.exe
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\bin\Debug\net9.0-windows\Gestion y Paquetería.deps.json
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\bin\Debug\net9.0-windows\Gestion y Paquetería.runtimeconfig.json
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\bin\Debug\net9.0-windows\Gestion y Paquetería.dll
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\bin\Debug\net9.0-windows\Gestion y Paquetería.pdb
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion_y_Paquetería.admin_historial.resources
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\Gestion y Paquetería.genruntimeconfig.cache
+C:\Users\djelo\OneDrive\Escritorio\Gestion y Paquetería\swiftShip\Gestion y Paquetería\obj\Debug\net9.0-windows\ref\Gestion y Paquetería.dll

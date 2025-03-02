@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\djelo\\OneDrive\\Escritorio\\Gestion y Paquetería\\Gestion y Paquetería\\Gestion y Paquetería.csproj",
+      "projectUniqueName": "C:\\Users\\djelo\\OneDrive\\Escritorio\\Gestion y Paquetería\\swiftShip\\Gestion y Paquetería\\Gestion y Paquetería.csproj",
       "projectName": "Gestion y Paquetería",
-      "projectPath": "C:\\Users\\djelo\\OneDrive\\Escritorio\\Gestion y Paquetería\\Gestion y Paquetería\\Gestion y Paquetería.csproj",
+      "projectPath": "C:\\Users\\djelo\\OneDrive\\Escritorio\\Gestion y Paquetería\\swiftShip\\Gestion y Paquetería\\Gestion y Paquetería.csproj",
       "packagesPath": "C:\\Users\\djelo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\djelo\\OneDrive\\Escritorio\\Gestion y Paquetería\\Gestion y Paquetería\\obj\\",
+      "outputPath": "C:\\Users\\djelo\\OneDrive\\Escritorio\\Gestion y Paquetería\\swiftShip\\Gestion y Paquetería\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

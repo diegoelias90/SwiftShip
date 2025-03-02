@@ -17,6 +17,7 @@ namespace Gestion_y_Paquetería
             InitializeComponent();
         }
 
+        //Inicio sesión como administrador o como empleado.
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
             iniciar_sesion iniciar_sesion = new iniciar_sesion();
@@ -25,6 +26,7 @@ namespace Gestion_y_Paquetería
             this.Show();
         }
 
+        //Salir del programa.
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();

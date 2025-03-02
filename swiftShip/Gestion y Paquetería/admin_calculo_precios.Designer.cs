@@ -1,6 +1,6 @@
 ﻿namespace Gestion_y_Paquetería
 {
-    partial class calculo_precios
+    partial class admin_calculo_precios
     {
         /// <summary>
         /// Required designer variable.

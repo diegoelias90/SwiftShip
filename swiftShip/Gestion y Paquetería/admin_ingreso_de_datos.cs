@@ -2,10 +2,10 @@ using Gestion_y_Paquetería;
 
 namespace Gestion_y_Paquetería
 {
-    public partial class ingreso_de_datos : Form
+    public partial class admin_ingreso_de_datos : Form
     {
         // Array tridimensional para almacenar los envíos: 50 envíos, 5 zonas y 3 estados.
-        private Envio[,,] envios = new Envio[50, 5, 3];
+        public static Envio[,,] envios = new Envio[50, 5, 3];
         // Contador que lleva la cantidad de envíos almacenados.
         private int contadorEnvios = 0;
         // Zonas predefinidas.
@@ -13,8 +13,8 @@ namespace Gestion_y_Paquetería
         // Estados posibles para un envío.
         private string[] estados = { "Pendiente", "En tránsito", "Entregado" };
 
-        // Constructor: Inicializa componentes y carga datos iniciales.
-        public ingreso_de_datos()
+        // Inicializa las zonas, estados, datos quemados y la lista de envíos al cargar el formulario.
+        public admin_ingreso_de_datos()
         {
             InitializeComponent();
             CargarZonas();
@@ -23,7 +23,7 @@ namespace Gestion_y_Paquetería
             ActualizarListaEnvios();
         }
 
-        // Configura los ComboBox para que solo permitan seleccionar elementos.
+        // Configura los ComboBox para que solo permitan seleccionar elementos (osea, que no cambie los datos).
         private void ingreso_de_datos_Load(object sender, EventArgs e)
         {
             cbZona.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -33,14 +33,14 @@ namespace Gestion_y_Paquetería
         // Carga las zonas en el ComboBox.
         private void CargarZonas()
         {
-            cbZona.Items.AddRange(zonas);
-            cbZona.SelectedIndex = 0;
+            cbZona.Items.AddRange(zonas); //Lo extráe de la lista de zonas inicializada arriba
+            cbZona.SelectedIndex = 0; // "Zona Norte" por defecto.
         }
 
         // Carga los estados en el ComboBox.
         private void CargarEstados()
         {
-            cbEstado.Items.AddRange(estados);
+            cbEstado.Items.AddRange(estados); //Lo extrae de la lista de estados inicializada arriba
             cbEstado.SelectedIndex = 0; // "Pendiente" por defecto.
         }
 
@@ -52,10 +52,14 @@ namespace Gestion_y_Paquetería
             AgregarEnvio("Carlos Mendoza", "Calle Secundaria, Zona Este", 3.2, 2, 2); // Zona Este, Entregado
         }
 
+        // Actualiza la lista de envíos en el DataGridView.
+        //¿Para qué? para mostrar los datos en el DataGridView (salia que era más fácil así).
         private void ActualizarListaEnvios()
         {
+            // Lista temporal para almacenar los envíos no nulos (que tienen datos).
             List<Envio> listaTemporal = new List<Envio>();
 
+            // Recorre el array de envíos y agrega los envíos no nulos a la lista temporal.
             for (int i = 0; i < contadorEnvios; i++)
             {
                 for (int j = 0; j < 5; j++)
@@ -75,10 +79,11 @@ namespace Gestion_y_Paquetería
             dgvEnvios.DataSource = listaTemporal;
         }
 
+
         // Evento que se ejecuta al hacer clic en el botón para agregar un envío.
         private void btAgregarEnvio_Click(object sender, EventArgs e)
         {
-            // Se validan los datos ingresados.
+            // Se validan los datos ingresados (si no tiene datos me muestra el mensaje de error).
             if (string.IsNullOrWhiteSpace(txtDestinatario.Text) ||
                 string.IsNullOrWhiteSpace(txtDireccion.Text) ||
                 !double.TryParse(txtPeso.Text, out double peso) || peso <= 0 ||
@@ -89,7 +94,7 @@ namespace Gestion_y_Paquetería
             }
 
             // Agrega el envío con los datos proporcionados.
-            AgregarEnvio(txtDestinatario.Text, txtDireccion.Text, peso, cbZona.SelectedIndex, cbEstado.SelectedIndex);
+            AgregarEnvio(txtDestinatario.Text, txtDireccion.Text, peso, cbZona.SelectedIndex, cbEstado.SelectedIndex); //Método en la parte de abajo
             // Limpia los campos después de agregar el envío.
             txtDestinatario.Clear();
             txtDireccion.Clear();
@@ -110,6 +115,8 @@ namespace Gestion_y_Paquetería
             string codigoSeguimiento = GenerarCodigoSeguimiento();
 
             //Aquí se está instanciando el nuevo objeto de la clase envio para agregarlo
+            //Lo que hace este objeto es almacenar los datos que se ingresaron en el formulario
+            //para luego ingresar "nuevoEnvio" en el array de envíos.
             Envio nuevoEnvio = new Envio
             {
                 CodigoSeguimiento = codigoSeguimiento,
@@ -161,9 +168,11 @@ namespace Gestion_y_Paquetería
             }
             return false;
         }
+
+        //Me redirecciona a la ventana de cálculo de precios.
         private void btnCalcularPrecios_Click(object sender, EventArgs e)
         {
-            calculo_precios calculo_precios = new calculo_precios(envios);
+            admin_calculo_precios calculo_precios = new admin_calculo_precios(envios);
             calculo_precios.ShowDialog();
 
         }

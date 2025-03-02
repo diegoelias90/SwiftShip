@@ -1,6 +1,6 @@
 ﻿namespace Gestion_y_Paquetería
 {
-    partial class ingreso_de_datos
+    partial class admin_ingreso_de_datos
     {
         /// <summary>
         ///  Required designer variable.

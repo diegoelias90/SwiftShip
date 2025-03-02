@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Gestion_y_Paquetería
+﻿namespace Gestion_y_Paquetería
 {
     public partial class iniciar_sesion : Form
     {
@@ -19,6 +9,7 @@ namespace Gestion_y_Paquetería
             txtContrasena.PasswordChar = '*';
         }
 
+        //Controla el evento de cambiar el estado del checkbox de mostrar contraseña.
         private void chkContra_CheckedChanged(object sender, EventArgs e)
         {
             if (chkContra.Checked == true)
@@ -31,11 +22,13 @@ namespace Gestion_y_Paquetería
             }
         }
 
+        //Controla el evento de hacer clic en el botón de iniciar sesión.
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
             //Convierte los datos ingresados a minúsculas
             txtContrasena.Text = txtContrasena.Text.ToLower();
             txtNombreUsuario.Text = txtNombreUsuario.Text.ToLower();
+
             //Asigna los datos ingresados a variables
             string usuario = txtNombreUsuario.Text;
             string contrasena = txtContrasena.Text;
@@ -45,17 +38,19 @@ namespace Gestion_y_Paquetería
             {
                 MessageBox.Show("Bienvenido, admin.", "Inicio de sesión exitoso.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //Redirecciona a la ventana de ingreso de datos
-                ingreso_de_datos ingreso_de_datos = new ingreso_de_datos();
+                admin_main admin_main = new admin_main();
                 this.Hide();
-                ingreso_de_datos.ShowDialog();
+                admin_main.ShowDialog();
                 this.Show();
             }
+            //Aquí se puede ingresar otro usuario y contraseña para el empleado.
             else
             {
                 MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        //Botón que me regresa al formulario de inicio.
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             inicio inicio = new inicio();

@@ -1,0 +1,14 @@
+
+# Ignorar carpetas y archivos de Visual Studio
+.vs/
+*.vsidx
+*.suo
+*.user
+*.db
+*.log
+bin/
+obj/
+
+
+
+
