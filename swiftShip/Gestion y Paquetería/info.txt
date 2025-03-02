@@ -1,0 +1,188 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace Gestion_y_Paquetería
+{
+    public partial class ingreso_de_datos : Form
+    {
+        private Envio[,,] envios = new Envio[10, 5, 3]; // Array tridimensional para almacenar envíos.
+        private int contadorEnvios = 0; // Controla cuántos envíos se han registrado.
+        private string[] zonas = { "Zona Norte", "Zona Sur", "Zona Este", "Zona Oeste", "Zona Central" };
+
+        // Lista de códigos ya generados para evitar duplicados.
+        private HashSet<string> codigosGenerados = new HashSet<string>();
+        // Estados posibles para un envío.
+        private string[] estados = { "Pendiente", "En tránsito", "Entregado" };
+
+
+        public ingreso_de_datos()
+        {
+            InitializeComponent();
+            InicializarFormulario();
+        }
+
+        private void InicializarFormulario()
+        {
+            CargarZonas();
+            CargarDatosQuemados();
+            ActualizarListaEnvios();
+        }
+
+        private void CargarZonas()
+        {
+            cbZona.Items.AddRange(zonas);
+            cbZona.SelectedIndex = 0;
+        }
+
+        // Carga los estados en el ComboBox.
+        private void CargarEstados()
+        {
+            //cbEstado.Items.AddRange(estados);
+            //cbEstado.SelectedIndex = 0; // "Pendiente" por defecto.
+        }
+
+
+        private void CargarDatosQuemados()
+        {
+            AgregarEnvio("Juan Pérez", "Calle 123, Ciudad", 2.5, 0);
+            AgregarEnvio("María López", "Av. Principal, Zona Sur", 1.8, 1);
+            AgregarEnvio("Carlos Mendoza", "Calle Secundaria, Zona Este", 3.2, 2);
+        }
+
+        private void btAgregarEnvio_Click(object sender, EventArgs e)
+        {
+            if (!ValidarCampos())
+            {
+                MessageBox.Show("Ingrese todos los datos correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            AgregarEnvio(txtDestinatario.Text, txtDireccion.Text, double.Parse(txtPeso.Text), cbZona.SelectedIndex);
+
+            LimpiarCampos();
+        }
+
+        private bool ValidarCampos()
+        {
+            return !string.IsNullOrWhiteSpace(txtDestinatario.Text) &&
+                   !string.IsNullOrWhiteSpace(txtDireccion.Text) &&
+                   double.TryParse(txtPeso.Text, out double peso) && peso > 0 &&
+                   cbZona.SelectedIndex != -1;
+        }
+
+        private void LimpiarCampos()
+        {
+            txtDestinatario.Clear();
+            txtDireccion.Clear();
+            txtPeso.Clear();
+        }
+
+        private void AgregarEnvio(string destinatario, string direccion, double peso, int zonaIndex)
+        {
+            if (contadorEnvios >= 10)
+            {
+                MessageBox.Show("Se ha alcanzado el límite de envíos almacenados.", "Límite alcanzado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Se validan los datos ingresados.
+            if (string.IsNullOrWhiteSpace(txtDestinatario.Text) ||
+                string.IsNullOrWhiteSpace(txtDireccion.Text) ||
+                !double.TryParse(txtPeso.Text, out double peso) || peso <= 0 ||
+                cbZona.SelectedIndex == -1 || cbEstado.SelectedIndex == -1)
+            {
+                MessageBox.Show("Ingrese todos los datos correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            string codigoSeguimiento = GenerarCodigoUnico();
+
+            Envio nuevoEnvio = new Envio
+            {
+                CodigoSeguimiento = codigoSeguimiento,
+                Destinatario = destinatario,
+                Direccion = direccion,
+                Peso = peso,
+                Zona = zonas[zonaIndex],
+                Estado = "Pendiente",
+                FechaRegistro = DateTime.Now
+            };
+
+            envios[contadorEnvios, zonaIndex, 0] = nuevoEnvio; // Primer estado: Pendiente.
+            contadorEnvios++;
+
+            ActualizarListaEnvios();
+        }
+
+        private string GenerarCodigoUnico()
+        {
+            string codigo;
+            Random random = new Random();
+
+            do
+            {
+                codigo = "ENV-" + DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + random.Next(1000, 9999);
+            } while (codigosGenerados.Contains(codigo));
+
+            codigosGenerados.Add(codigo);
+            return codigo;
+        }
+
+        private void ActualizarListaEnvios()
+        {
+            List<Envio> listaTemporal = new List<Envio>();
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    for (int k = 0; k < 3; k++)
+                    {
+                        if (envios[i, j, k] != null)
+                        {
+                            listaTemporal.Add(envios[i, j, k]);
+                        }
+                    }
+                }
+            }
+
+            dgvEnvios.DataSource = null;
+            dgvEnvios.DataSource = listaTemporal;
+        }
+
+        public Envio[,,] ObtenerEnvios()
+        {
+            return envios;
+        }
+
+        private void ingreso_de_datos_Load(object sender, EventArgs e)
+        {
+            cbZona.DropDownStyle = ComboBoxStyle.DropDownList;
+            //cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void btnCalcularPrecios_Click(object sender, EventArgs e)
+        {
+            calculo_precios calculo_precios = new calculo_precios(envios);
+            this.Hide();
+            calculo_precios.ShowDialog();
+            this.Show();
+        }
+
+        public class Envio
+        {
+            public string CodigoSeguimiento { get; set; }
+            public string Destinatario { get; set; }
+            public string Direccion { get; set; }
+            public double Peso { get; set; }
+            public string Zona { get; set; }
+            public string Estado { get; set; }
+            public DateTime FechaRegistro { get; set; }
+        }
+
+        
+    }
+}
