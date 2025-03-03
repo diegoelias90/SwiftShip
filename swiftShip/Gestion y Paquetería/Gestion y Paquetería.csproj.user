@@ -13,6 +13,9 @@
     <Compile Update="admin_ingreso_de_datos.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="repartidor_vista.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="iniciar_sesion.cs">
       <SubType>Form</SubType>
     </Compile>

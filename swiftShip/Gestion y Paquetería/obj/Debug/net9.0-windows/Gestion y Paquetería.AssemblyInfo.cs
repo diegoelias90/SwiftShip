@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Gestion y Paquetería")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+403117ac01ae90f7cfa6763bfbc6786a3096129f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+020c3480b1afac5071a425d9d9ec477ef00a2f14")]
 [assembly: System.Reflection.AssemblyProductAttribute("Gestion y Paquetería")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Gestion y Paquetería")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

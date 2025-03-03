@@ -23,6 +23,12 @@ namespace Gestion_y_Paquetería
             ActualizarListaEnvios();
         }
 
+        // Método para obtener los envíos desde otras clases.
+        public Envio[,,] GetEnvios()
+        {
+            return envios;
+        }
+
         // Configura los ComboBox para que solo permitan seleccionar elementos (osea, que no cambie los datos).
         private void ingreso_de_datos_Load(object sender, EventArgs e)
         {
@@ -52,9 +58,20 @@ namespace Gestion_y_Paquetería
             AgregarEnvio("Carlos Mendoza", "Calle Secundaria, Zona Este", 3.2, 2, 2); // Zona Este, Entregado
         }
 
+        public void ActualizarEnvio(Envio envioActualizado, int indiceEnvio, int indiceZonaAnterior, int indiceEstadoAnterior, int nuevoEstadoIndex){
+            // Eliminar el envío de su posición anterior
+            envios[indiceEnvio, indiceZonaAnterior, indiceEstadoAnterior] = null;
+
+            // Colocar el envío actualizado en la nueva posición
+            envios[indiceEnvio, indiceZonaAnterior, nuevoEstadoIndex] = envioActualizado;
+
+            // Actualizar la vista
+            ActualizarListaEnvios();
+        }
+
         // Actualiza la lista de envíos en el DataGridView.
         //¿Para qué? para mostrar los datos en el DataGridView (salia que era más fácil así).
-        private void ActualizarListaEnvios()
+        public void ActualizarListaEnvios()
         {
             // Lista temporal para almacenar los envíos no nulos (que tienen datos).
             List<Envio> listaTemporal = new List<Envio>();
